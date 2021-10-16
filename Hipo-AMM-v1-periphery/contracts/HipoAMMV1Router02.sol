@@ -13,19 +13,30 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
 
     address public immutable override factory;
     address public immutable override WETH;
+    address public immutable financingPool;
 
     modifier ensure(uint deadline) {
         require(deadline >= block.timestamp, 'HipoAMMV1Router: EXPIRED');
         _;
     }
 
-    constructor(address _factory, address _WETH) public {
+    modifier onlyFinancingPool {
+        require(_msgSender() == financingPool, 'HipoAMMV1Router: COLT_CALLER_MUST_BE_FINANCING_POOL');
+        _;
+    }
+
+    constructor(address _factory, address _WETH, address _financingPool) public {
         factory = _factory;
         WETH = _WETH;
+        financingPool = _financingPool;
     }
 
     receive() external payable {
         assert(msg.sender == WETH); // only accept ETH via fallback from the WETH contract
+    }
+
+    function _msgSender() internal view virtual returns (address payable) {
+        return msg.sender;
     }
 
     // **** ADD LIQUIDITY ****
@@ -66,7 +77,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         uint amountBMin,
         address to,
         uint deadline
-    ) external virtual override ensure(deadline) returns (uint amountA, uint amountB, uint liquidity) {
+    ) external virtual override ensure(deadline) onlyFinancingPool returns (uint amountA, uint amountB, uint liquidity) {
         (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin);
         address pair = HipoAMMV1Library.pairFor(factory, tokenA, tokenB);
         TransferHelper.safeTransferFrom(tokenA, msg.sender, pair, amountA);
@@ -80,7 +91,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         uint amountETHMin,
         address to,
         uint deadline
-    ) external virtual override payable ensure(deadline) returns (uint amountToken, uint amountETH, uint liquidity) {
+    ) external virtual override payable ensure(deadline) onlyFinancingPool returns (uint amountToken, uint amountETH, uint liquidity) {
         (amountToken, amountETH) = _addLiquidity(
             token,
             WETH,
@@ -107,7 +118,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         uint amountBMin,
         address to,
         uint deadline
-    ) public virtual override ensure(deadline) returns (uint amountA, uint amountB) {
+    ) public virtual override ensure(deadline) onlyFinancingPool returns (uint amountA, uint amountB) {
         address pair = HipoAMMV1Library.pairFor(factory, tokenA, tokenB);
         IHipoAMMV1Pair(pair).transferFrom(msg.sender, pair, liquidity); // send liquidity to pair
         (uint amount0, uint amount1) = IHipoAMMV1Pair(pair).burn(to);
@@ -123,7 +134,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         uint amountETHMin,
         address to,
         uint deadline
-    ) public virtual override ensure(deadline) returns (uint amountToken, uint amountETH) {
+    ) public virtual override ensure(deadline) onlyFinancingPool returns (uint amountToken, uint amountETH) {
         (amountToken, amountETH) = removeLiquidity(
             token,
             WETH,
@@ -146,7 +157,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address to,
         uint deadline,
         bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external virtual override returns (uint amountA, uint amountB) {
+    ) external virtual override onlyFinancingPool returns (uint amountA, uint amountB) {
         address pair = HipoAMMV1Library.pairFor(factory, tokenA, tokenB);
         uint value = approveMax ? uint(-1) : liquidity;
         IHipoAMMV1Pair(pair).permit(msg.sender, address(this), value, deadline, v, r, s);
@@ -160,7 +171,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address to,
         uint deadline,
         bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external virtual override returns (uint amountToken, uint amountETH) {
+    ) external virtual override onlyFinancingPool returns (uint amountToken, uint amountETH) {
         address pair = HipoAMMV1Library.pairFor(factory, token, WETH);
         uint value = approveMax ? uint(-1) : liquidity;
         IHipoAMMV1Pair(pair).permit(msg.sender, address(this), value, deadline, v, r, s);
@@ -175,7 +186,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         uint amountETHMin,
         address to,
         uint deadline
-    ) public virtual override ensure(deadline) returns (uint amountETH) {
+    ) public virtual override ensure(deadline) onlyFinancingPool returns (uint amountETH) {
         (, amountETH) = removeLiquidity(
             token,
             WETH,
@@ -197,7 +208,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address to,
         uint deadline,
         bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external virtual override returns (uint amountETH) {
+    ) external virtual override onlyFinancingPool returns (uint amountETH) {
         address pair = HipoAMMV1Library.pairFor(factory, token, WETH);
         uint value = approveMax ? uint(-1) : liquidity;
         IHipoAMMV1Pair(pair).permit(msg.sender, address(this), value, deadline, v, r, s);
@@ -226,7 +237,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address[] calldata path,
         address to,
         uint deadline
-    ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
+    ) external virtual override ensure(deadline) onlyFinancingPool returns (uint[] memory amounts) {
         amounts = HipoAMMV1Library.getAmountsOut(factory, amountIn, path);
         require(amounts[amounts.length - 1] >= amountOutMin, 'HipoAMMV1Router: INSUFFICIENT_OUTPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
@@ -240,7 +251,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address[] calldata path,
         address to,
         uint deadline
-    ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
+    ) external virtual override ensure(deadline) onlyFinancingPool returns (uint[] memory amounts) {
         amounts = HipoAMMV1Library.getAmountsIn(factory, amountOut, path);
         require(amounts[0] <= amountInMax, 'HipoAMMV1Router: EXCESSIVE_INPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
@@ -254,6 +265,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         override
         payable
         ensure(deadline)
+        onlyFinancingPool
         returns (uint[] memory amounts)
     {
         require(path[0] == WETH, 'HipoAMMV1Router: INVALID_PATH');
@@ -268,6 +280,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         virtual
         override
         ensure(deadline)
+        onlyFinancingPool
         returns (uint[] memory amounts)
     {
         require(path[path.length - 1] == WETH, 'HipoAMMV1Router: INVALID_PATH');
@@ -285,6 +298,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         virtual
         override
         ensure(deadline)
+        onlyFinancingPool
         returns (uint[] memory amounts)
     {
         require(path[path.length - 1] == WETH, 'HipoAMMV1Router: INVALID_PATH');
@@ -303,6 +317,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         override
         payable
         ensure(deadline)
+        onlyFinancingPool
         returns (uint[] memory amounts)
     {
         require(path[0] == WETH, 'HipoAMMV1Router: INVALID_PATH');
@@ -341,7 +356,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         address[] calldata path,
         address to,
         uint deadline
-    ) external virtual override ensure(deadline) {
+    ) external virtual override ensure(deadline) onlyFinancingPool {
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, HipoAMMV1Library.pairFor(factory, path[0], path[1]), amountIn
         );
@@ -363,6 +378,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         override
         payable
         ensure(deadline)
+        onlyFinancingPool
     {
         require(path[0] == WETH, 'HipoAMMV1Router: INVALID_PATH');
         uint amountIn = msg.value;
@@ -386,6 +402,7 @@ contract HipoAMMV1Router02 is IHipoAMMV1Router02 {
         virtual
         override
         ensure(deadline)
+        onlyFinancingPool
     {
         require(path[path.length - 1] == WETH, 'HipoAMMV1Router: INVALID_PATH');
         TransferHelper.safeTransferFrom(
