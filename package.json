@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Hipoone/Hipo-V1-AMM/issues"
   },
-  "homepage": "https://github.com/Hipoone/Hipo-V1-AMM#readme"
+  "homepage": "https://github.com/Hipoone/Hipo-V1-AMM#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.3"
+  }
 }
