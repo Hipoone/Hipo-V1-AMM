@@ -1,0 +1,845 @@
+{
+  "provider": "0x709780d4B8fc61Bd79187D13B8499095Dd10fEf7",
+  "hipoAmmV1Router02": "0xc22c9625CD1d5AD38f64cD21770cB160506d96bF",
+  "hipoFactory": "0xA859AC72c93Db81428966eC98Cf8C76F390ea31f",
+  "hipoIncentivesController": "0x7F58E18986365a49464c1d10F9Ab14DF735d61fb",
+  "UniswapLpToken": [
+    {
+      "name": "USDCWETH",
+      "decimals": 18,
+      "address": "0x5A1fcDa636294fc4DFdbe4B732488D7d4DA75099",
+      "underlyingAssetA": "WETH",
+      "underlyingAssetB": "USDC",
+      "config": "365354914913321040"
+    },
+    {
+      "name": "WETHUSDT",
+      "decimals": 18,
+      "address": "0xfFe3a709D0892BdFd985356FDeB359839F5c67f7",
+      "underlyingAssetA": "WETH",
+      "underlyingAssetB": "USDT",
+      "config": "365354914913321040"
+    },
+    {
+      "name": "DAIWETH",
+      "decimals": 18,
+      "address": "0x81b94766463E059a4196081f88DBBF7e7c945726",
+      "underlyingAssetA": "WETH",
+      "underlyingAssetB": "DAI",
+      "config": "365354914913321040"
+    }
+  ],
+  "WETH":
+  {
+    "decimals": 18,
+    "address": "0x232bB0bBf8274342fB044FF40e716bf887fb9214"
+  },
+  "USDC":
+  {
+    "decimals": 6,
+    "address": "0x48cC35cA5f68BA3bb9b864d152377308a3FdF47f"
+  },
+  "USDT":
+  {
+    "decimals": 6,
+    "address": "0xe307D26Ee744be4730cF4EA3AEdF4808eC5846bE"
+  },
+  "DAI":
+  {
+    "decimals": 18,
+    "address": "0x2B3a1009E4c01B4676CEbfC37C2b91BF2d330508"
+  },
+  "assets": [
+    {
+      "asset": "WETH",
+      "duration": 432000
+    },
+    {
+      "asset": "WETH",
+      "duration": 864000
+    },
+    {
+      "asset": "WETH",
+      "duration": 1296000
+    },
+    {
+      "asset": "WETH",
+      "duration": 2592000
+    },
+    {
+      "asset": "WETH",
+      "duration": 3888000
+    },
+    {
+      "asset": "WETH",
+      "duration": 5184000
+    },
+    {
+      "asset": "USDC",
+      "duration": 432000
+    },
+    {
+      "asset": "USDC",
+      "duration": 864000
+    },
+    {
+      "asset": "USDC",
+      "duration": 1296000
+    },
+    {
+      "asset": "USDC",
+      "duration": 2592000
+    },
+    {
+      "asset": "USDC",
+      "duration": 3888000
+    },
+    {
+      "asset": "USDC",
+      "duration": 5184000
+    },
+    {
+      "asset": "USDT",
+      "duration": 432000
+    },
+    {
+      "asset": "USDT",
+      "duration": 864000
+    },
+    {
+      "asset": "USDT",
+      "duration": 1296000
+    },
+    {
+      "asset": "USDT",
+      "duration": 2592000
+    },
+    {
+      "asset": "USDT",
+      "duration": 3888000
+    },
+    {
+      "asset": "USDT",
+      "duration": 5184000
+    },
+    {
+      "asset": "DAI",
+      "duration": 432000
+    },
+    {
+      "asset": "DAI",
+      "duration": 864000
+    },
+    {
+      "asset": "DAI",
+      "duration": 1296000
+    },
+    {
+      "asset": "DAI",
+      "duration": 2592000
+    },
+    {
+      "asset": "DAI",
+      "duration": 3888000
+    },
+    {
+      "asset": "DAI",
+      "duration": 5184000
+    }
+  ],
+  "ColToken":
+  [
+    {
+      "name": "cuUSDCWETH",
+      "symbol": "cuUSDCWETH"
+    },
+    {
+      "name": "cuWETHUSDT",
+      "symbol": "cuWETHUSDT"
+    },
+    {
+      "name": "cuDAIWETH",
+      "symbol": "cuDAIWETH"
+    }
+  ],
+  "BondToken":
+  [
+    {
+      "name": "bWETH5",
+      "symbol": "bWETH5",
+      "delay": 28800
+    },
+    {
+      "name": "bWETH10",
+      "symbol": "bWETH10",
+      "delay": 43200
+    },
+    {
+      "name": "bWETH15",
+      "symbol": "bWETH15",
+      "delay": 57600
+    },
+    {
+      "name": "bWETH30",
+      "symbol": "bWETH30",
+      "delay": 72000
+    },
+    {
+      "name": "bWETH45",
+      "symbol": "bWETH45",
+      "delay": 86400
+    },
+    {
+      "name": "bWETH60",
+      "symbol": "bWETH60",
+      "delay": 100800
+    },
+    {
+      "name": "bUSDC5",
+      "symbol": "bUSDC5",
+      "delay": 28800
+    },
+    {
+      "name": "bUSDC10",
+      "symbol": "bUSDC10",
+      "delay": 43200
+    },
+    {
+      "name": "bUSDC15",
+      "symbol": "bUSDC15",
+      "delay": 57600
+    },
+    {
+      "name": "bUSDC30",
+      "symbol": "bUSDC30",
+      "delay": 72000
+    },
+    {
+      "name": "bUSDC45",
+      "symbol": "bUSDC45",
+      "delay": 86400
+    },
+    {
+      "name": "bUSDC60",
+      "symbol": "bUSDC60",
+      "delay": 100800
+    },
+    {
+      "name": "bUSDT5",
+      "symbol": "bUSDT5",
+      "delay": 28800
+    },
+    {
+      "name": "bUSDT10",
+      "symbol": "bUSDT10",
+      "delay": 43200
+    },
+    {
+      "name": "bUSDT15",
+      "symbol": "bUSDT15",
+      "delay": 57600
+    },
+    {
+      "name": "bUSDT30",
+      "symbol": "bUSDT30",
+      "delay": 72000
+    },
+    {
+      "name": "bUSDT45",
+      "symbol": "bUSDT45",
+      "delay": 86400
+    },
+    {
+      "name": "bUSDT60",
+      "symbol": "bUSDT60",
+      "delay": 100800
+    },
+    {
+      "name": "bDAI5",
+      "symbol": "bDAI5",
+      "delay": 28800
+    },
+    {
+      "name": "bDAI10",
+      "symbol": "bDAI10",
+      "delay": 43200
+    },
+    {
+      "name": "bDAI15",
+      "symbol": "bDAI15",
+      "delay": 57600
+    },
+    {
+      "name": "bDAI30",
+      "symbol": "bDAI30",
+      "delay": 72000
+    },
+    {
+      "name": "bDAI45",
+      "symbol": "bDAI45",
+      "delay": 86400
+    },
+    {
+      "name": "bDAI60",
+      "symbol": "bDAI60",
+      "delay": 100800
+    }
+  ],
+  "DebtToken":
+  [
+    {
+      "name": "dWETH5",
+      "symbol": "dWETH5",
+      "delay": 14400
+    },
+    {
+      "name": "dWETH10",
+      "symbol": "dWETH10",
+      "delay": 28800
+    },
+    {
+      "name": "dWETH15",
+      "symbol": "dWETH15",
+      "delay": 43200
+    },
+    {
+      "name": "dWETH30",
+      "symbol": "dWETH30",
+      "delay": 57600
+    },
+    {
+      "name": "dWETH45",
+      "symbol": "dWETH45",
+      "delay": 72000
+    },
+    {
+      "name": "dWETH60",
+      "symbol": "dWETH60",
+      "delay": 86400
+    },
+    {
+      "name": "dUSDC5",
+      "symbol": "dUSDC5",
+      "delay": 14400
+    },
+    {
+      "name": "dUSDC10",
+      "symbol": "dUSDC10",
+      "delay": 28800
+    },
+    {
+      "name": "dUSDC15",
+      "symbol": "dUSDC15",
+      "delay": 43200
+    },
+    {
+      "name": "dUSDC30",
+      "symbol": "dUSDC30",
+      "delay": 57600
+    },
+    {
+      "name": "dUSDC45",
+      "symbol": "dUSDC45",
+      "delay": 72000
+    },
+    {
+      "name": "dUSDC60",
+      "symbol": "dUSDC60",
+      "delay": 86400
+    },
+    {
+      "name": "dUSDT5",
+      "symbol": "dUSDT5",
+      "delay": 14400
+    },
+    {
+      "name": "dUSDT10",
+      "symbol": "dUSDT10",
+      "delay": 28800
+    },
+    {
+      "name": "dUSDT15",
+      "symbol": "dUSDT15",
+      "delay": 43200
+    },
+    {
+      "name": "dUSDT30",
+      "symbol": "dUSDT30",
+      "delay": 57600
+    },
+    {
+      "name": "dUSDT45",
+      "symbol": "dUSDT45",
+      "delay": 72000
+    },
+    {
+      "name": "dUSDT60",
+      "symbol": "dUSDT60",
+      "delay": 86400
+    },
+    {
+      "name": "dDAI5",
+      "symbol": "dDAI5",
+      "delay": 14400
+    },
+    {
+      "name": "dDAI10",
+      "symbol": "dDAI10",
+      "delay": 28800
+    },
+    {
+      "name": "dDAI15",
+      "symbol": "dDAI15",
+      "delay": 43200
+    },
+    {
+      "name": "dDAI30",
+      "symbol": "dDAI30",
+      "delay": 57600
+    },
+    {
+      "name": "dDAI45",
+      "symbol": "dDAI45",
+      "delay": 72000
+    },
+    {
+      "name": "dDAI60",
+      "symbol": "dDAI60",
+      "delay": 86400
+    }
+  ],
+  "InterestToken":
+  [
+    {
+      "name": "iWETH5",
+      "symbol": "iWETH5"
+    },
+    {
+      "name": "iWETH10",
+      "symbol": "iWETH10"
+    },
+    {
+      "name": "iWETH15",
+      "symbol": "iWETH15"
+    },
+    {
+      "name": "iWETH30",
+      "symbol": "iWETH30"
+    },
+    {
+      "name": "iWETH45",
+      "symbol": "iWETH45"
+    },
+    {
+      "name": "iWETH60",
+      "symbol": "iWETH60"
+    },
+    {
+      "name": "iUSDC5",
+      "symbol": "iUSDC5"
+    },
+    {
+      "name": "iUSDC10",
+      "symbol": "iUSDC10"
+    },
+    {
+      "name": "iUSDC15",
+      "symbol": "iUSDC15"
+    },
+    {
+      "name": "iUSDC30",
+      "symbol": "iUSDC30"
+    },
+    {
+      "name": "iUSDC45",
+      "symbol": "iUSDC45"
+    },
+    {
+      "name": "iUSDC60",
+      "symbol": "iUSDC60"
+    },
+    {
+      "name": "iUSDT5",
+      "symbol": "iUSDT5"
+    },
+    {
+      "name": "iUSDT10",
+      "symbol": "iUSDT10"
+    },
+    {
+      "name": "iUSDT15",
+      "symbol": "iUSDT15"
+    },
+    {
+      "name": "iUSDT30",
+      "symbol": "iUSDT30"
+    },
+    {
+      "name": "iUSDT45",
+      "symbol": "iUSDT45"
+    },
+    {
+      "name": "iUSDT60",
+      "symbol": "iUSDT60"
+    },
+    {
+      "name": "iDAI5",
+      "symbol": "iDAI5"
+    },
+    {
+      "name": "iDAI10",
+      "symbol": "iDAI10"
+    },
+    {
+      "name": "iDAI15",
+      "symbol": "iDAI15"
+    },
+    {
+      "name": "iDAI30",
+      "symbol": "iDAI30"
+    },
+    {
+      "name": "iDAI45",
+      "symbol": "iDAI45"
+    },
+    {
+      "name": "iDAI60",
+      "symbol": "iDAI60"
+    }
+  ],
+  "LpToken":
+  [
+    {
+      "name": "lpWETH5",
+      "symbol": "lpWETH5"
+    },
+    {
+      "name": "lpWETH10",
+      "symbol": "lpWETH10"
+    },
+    {
+      "name": "lpWETH15",
+      "symbol": "lpWETH15"
+    },
+    {
+      "name": "lpWETH30",
+      "symbol": "lpWETH30"
+    },
+    {
+      "name": "lpWETH45",
+      "symbol": "lpWETH45"
+    },
+    {
+      "name": "lpWETH60",
+      "symbol": "lpWETH60"
+    },
+    {
+      "name": "lpUSDC5",
+      "symbol": "lpUSDC5"
+    },
+    {
+      "name": "lpUSDC10",
+      "symbol": "lpUSDC10"
+    },
+    {
+      "name": "lpUSDC15",
+      "symbol": "lpUSDC15"
+    },
+    {
+      "name": "lpUSDC30",
+      "symbol": "lpUSDC30"
+    },
+    {
+      "name": "lpUSDC45",
+      "symbol": "lpUSDC45"
+    },
+    {
+      "name": "lpUSDC60",
+      "symbol": "lpUSDC60"
+    },
+    {
+      "name": "lpUSDT5",
+      "symbol": "lpUSDT5"
+    },
+    {
+      "name": "lpUSDT10",
+      "symbol": "lpUSDT10"
+    },
+    {
+      "name": "lpUSDT15",
+      "symbol": "lpUSDT15"
+    },
+    {
+      "name": "lpUSDT30",
+      "symbol": "lpUSDT30"
+    },
+    {
+      "name": "lpUSDT45",
+      "symbol": "lpUSDT45"
+    },
+    {
+      "name": "lpUSDT60",
+      "symbol": "lpUSDT60"
+    },
+    {
+      "name": "lpDAI5",
+      "symbol": "lpDAI5"
+    },
+    {
+      "name": "lpDAI10",
+      "symbol": "lpDAI10"
+    },
+    {
+      "name": "lpDAI15",
+      "symbol": "lpDAI15"
+    },
+    {
+      "name": "lpDAI30",
+      "symbol": "lpDAI30"
+    },
+    {
+      "name": "lpDAI45",
+      "symbol": "lpDAI45"
+    },
+    {
+      "name": "lpDAI60",
+      "symbol": "lpDAI60"
+    }
+  ],
+  "HipoFee":
+  [
+    {
+      "name": "hWETH5",
+      "symbol": "hWETH5"
+    },
+    {
+      "name": "hWETH10",
+      "symbol": "hWETH10"
+    },
+    {
+      "name": "hWETH15",
+      "symbol": "hWETH15"
+    },
+    {
+      "name": "hWETH30",
+      "symbol": "hWETH30"
+    },
+    {
+      "name": "hWETH45",
+      "symbol": "hWETH45"
+    },
+    {
+      "name": "hWETH60",
+      "symbol": "hWETH60"
+    },
+    {
+      "name": "hUSDC5",
+      "symbol": "hUSDC5"
+    },
+    {
+      "name": "hUSDC10",
+      "symbol": "hUSDC10"
+    },
+    {
+      "name": "hUSDC15",
+      "symbol": "hUSDC15"
+    },
+    {
+      "name": "hUSDC30",
+      "symbol": "hUSDC30"
+    },
+    {
+      "name": "hUSDC45",
+      "symbol": "hUSDC45"
+    },
+    {
+      "name": "hUSDC60",
+      "symbol": "hUSDC60"
+    },
+    {
+      "name": "hUSDT5",
+      "symbol": "hUSDT5"
+    },
+    {
+      "name": "hUSDT10",
+      "symbol": "hUSDT10"
+    },
+    {
+      "name": "hUSDT15",
+      "symbol": "hUSDT15"
+    },
+    {
+      "name": "hUSDT30",
+      "symbol": "hUSDT30"
+    },
+    {
+      "name": "hUSDT45",
+      "symbol": "hUSDT45"
+    },
+    {
+      "name": "hUSDT60",
+      "symbol": "hUSDT60"
+    },
+    {
+      "name": "hDAI5",
+      "symbol": "hDAI5"
+    },
+    {
+      "name": "hDAI10",
+      "symbol": "hDAI10"
+    },
+    {
+      "name": "hDAI15",
+      "symbol": "hDAI15"
+    },
+    {
+      "name": "hDAI30",
+      "symbol": "hDAI30"
+    },
+    {
+      "name": "hDAI45",
+      "symbol": "hDAI45"
+    },
+    {
+      "name": "hDAI60",
+      "symbol": "hDAI60"
+    }
+  ],
+  "HipoProtocolFee":
+  [
+    {
+      "name": "pWETH",
+      "symbol": "pWETH"
+    },
+    {
+      "name": "pUSDC",
+      "symbol": "pUSDC"
+    },
+    {
+      "name": "pUSDT",
+      "symbol": "pUSDT"
+    },
+    {
+      "name": "pDAI",
+      "symbol": "pDAI"
+    }
+  ],
+  "HipoTreasury":
+  [
+    {
+      "name": "tWETH",
+      "symbol": "tWETH"
+    },
+    {
+      "name": "tUSDC",
+      "symbol": "tUSDC"
+    },
+    {
+      "name": "tUSDT",
+      "symbol": "tUSDT"
+    },
+    {
+      "name": "tDAI",
+      "symbol": "tDAI"
+    }
+  ],
+  "ReserveConfiguration":
+  [
+    {
+      "index": 0,
+      "configuration": "1153286859126617538562"
+    },
+    {
+      "index": 1,
+      "configuration": "576826106823194116099"
+    },
+    {
+      "index": 2,
+      "configuration": "461533956362509615110"
+    },
+    {
+      "index": 3,
+      "configuration": "230949655441140613132"
+    },
+    {
+      "index": 4,
+      "configuration": "115657504980456308754"
+    },
+    {
+      "index": 5,
+      "configuration": "115657504980456439828"
+    },
+    {
+      "index": 6,
+      "configuration": "1153283481426897010690"
+    },
+    {
+      "index": 7,
+      "configuration": "576822729123473588227"
+    },
+    {
+      "index": 8,
+      "configuration": "461530578662789087238"
+    },
+    {
+      "index": 9,
+      "configuration": "230946277741420085260"
+    },
+    {
+      "index": 10,
+      "configuration": "115654127280735780882"
+    },
+    {
+      "index": 11,
+      "configuration": "115654127280735911956"
+    },
+    {
+      "index": 12,
+      "configuration": "1153283481426897010690"
+    },
+    {
+      "index": 13,
+      "configuration": "576822729123473588227"
+    },
+    {
+      "index": 14,
+      "configuration": "461530578662789087238"
+    },
+    {
+      "index": 15,
+      "configuration": "230946277741420085260"
+    },
+    {
+      "index": 16,
+      "configuration": "115654127280735780882"
+    },
+    {
+      "index": 17,
+      "configuration": "115654127280735911956"
+    },
+    {
+      "index": 18,
+      "configuration": "1153286859126617538562"
+    },
+    {
+      "index": 19,
+      "configuration": "576826106823194116099"
+    },
+    {
+      "index": 20,
+      "configuration": "461533956362509615110"
+    },
+    {
+      "index": 21,
+      "configuration": "230949655441140613132"
+    },
+    {
+      "index": 22,
+      "configuration": "115657504980456308754"
+    },
+    {
+      "index": 23,
+      "configuration": "115657504980456439828"
+    }
+  ]
+}
