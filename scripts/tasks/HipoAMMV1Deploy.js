@@ -32,6 +32,11 @@ task('HipoAMMV1Deploy', 'Deploy Hipo AMM(V1)')
       FinancingPoolAddress
     )
 
+    const router02 = {
+      contract: "HipoAMMV1Router02",
+      address: hardhatHipoAMMV1Router02.address
+    }
+
     const interestTokenAddress = InterestTokenAddress.InterestToken;
     
     for (i = 0; i < interestTokenAddress.length; i++) {
@@ -107,14 +112,19 @@ task('HipoAMMV1Deploy', 'Deploy Hipo AMM(V1)')
     //   })
 
     const factoryData = {
-      HipoAMMV1: factory
+      HipoAMMV1Factory: factory
+    };
+
+    const router02Data = {
+      HipoAMMV1Router02: router02
     };
 
     const pairsData = {
       pairs: Pairs
     }
 
-    fs.writeFileSync('./scripts/initialization/HipoAMMV1Deploy.json', JSON.stringify(factoryData));
+    fs.writeFileSync('./scripts/initialization/HipoAMMV1FactoryDeploy.json', JSON.stringify(factoryData));
+    fs.writeFileSync('./scripts/initialization/HipoAMMV1Router02Deploy.json', JSON.stringify(router02Data));
     fs.writeFileSync('./scripts/initialization/HipoAMMV1Pairs.json', JSON.stringify(pairsData));
 
   });
